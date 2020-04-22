@@ -18,6 +18,7 @@ public class ChartService {
 	
 	public List<Sale> findByYear(Integer year){
 		List<Sale> saleList = chartRepository.fingByYear(year);
+				
 		return saleList;
 	}
 }

@@ -39,9 +39,10 @@ public class ChartRepository {
 		sql.append(" year, month ");
 		sql.append("ORDER BY ");
 		sql.append(" year, month");
-		
-		SqlParameterSource param = new MapSqlParameterSource().addValue("year", year);
+
+		SqlParameterSource param = new MapSqlParameterSource().addValue("year", year);		
 		List<Sale> saleList = template.query(sql.toString(), param, SALE_ROW_MAPPER);
+		
 		return saleList;
 	}
 }

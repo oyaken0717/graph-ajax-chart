@@ -23,14 +23,19 @@ public class ChartController {
 	public List<Sale> graph(Integer year,Model model) {
 		List<Sale> saleList = chartService.findByYear(year);
 		
+		System.out.println("saleList");
+		System.out.println(saleList.toString());
+		
 		List<Integer> yokos = new ArrayList<>();
 		List<Integer> tates = new ArrayList<>();
 		for (Sale sale : saleList) {
 			yokos.add(sale.getMonth());
 			tates.add(sale.getTotalPrice());
 		}
-		model.addAttribute("yoko",yokos);
-		model.addAttribute("tate",tates);
+		model.addAttribute("yokos",yokos);
+		model.addAttribute("tates",tates);
+		System.out.println("yokos");
+		System.out.println(yokos.toString());
 		
 		return saleList;
 	}

@@ -5,55 +5,18 @@
 	<title>Insert title here</title>
 </head>
 <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+	
 <!--■ form -->
-	<form th:action="@{//}">
 		<select id="year">
 			<option value="2020">2020</option>
 			<option value="2021">2021</option>
 		</select>
-		<button type="button">送信</button>
-	</form>
 
+<!--■ チャート -->
 	<canvas id="graph"></canvas>
-	<script type="text/javascript" th:inline="javascript"></script>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
-<!--■②ここから -->        
-        <script>
-                var ct = document.getElementById("graph");
-                var chart = new Chart(ct, {
-                        type : 'line',
-                        data : {
-                                labels : [ '8月1日', '8月2日', '8月3日', '8月4日', '8月5日', '8月6日','8月7日' ],
-                                datasets : [ 
-                                        {
-                                        data : [ 35, 34, 37, 35, 34, 35, 34, 25 ],
-                                        }
-                                ],
-                        },
-                        options : {
-                                title : {
-                                	display: true,
-                                        text : '気温（8月1日~8月7日）'
-                                },
-                                scales : {
-                                        yAxes : [ {
-                                                ticks : {
-                                                        suggestedMax : 40,
-                                                        suggestedMin : 30,
-                                                        stepSize : 2,
-                                                        callback : function(value) {
-                                                                return value + '度'
-                                                        }
-                                                }
-                                        } ]
-                                },
-                        }
-                });
-        </script>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script th:src="@{/js/chart.js}"></script>
+	<script th:src="@{/js/chart.js}" th:inline="javascript"></script>
 </body>
 </html>
