@@ -16,48 +16,15 @@ $(function(){
 		}).done(function(data){
 			console.log(data);
 			console.dir(JSON.stringify(data));
-
-			var yokos = [];
-			var tates = [];
-			for (var sale of data) {
-				yokos.push(sale.month);
-				tates.push(sale.totalPrice);
-			}
 			
 			var ct = document.getElementById("graph");
 			var chart = new Chart(ct, {
 				type : 'line',
 				data : {
-					labels :[
-						yokos[0],
-						yokos[1],
-						yokos[2],
-						yokos[3],
-						yokos[4],
-						yokos[5],
-						yokos[6],
-						yokos[7],
-						yokos[8],
-						yokos[9],
-						yokos[10],
-						yokos[11],						
-					],
+					labels :/*[[${yokos}]]*/,
 					datasets : [ 
 						{
-							data :[
-								tates[0],
-								tates[1],
-								tates[2],
-								tates[3],
-								tates[4],
-								tates[5],
-								tates[6],
-								tates[7],
-								tates[8],
-								tates[9],
-								tates[10],
-								tates[11],
-							],
+							data :/*[[${tates}]]*/,
 						}
 					],
 				},
@@ -69,11 +36,11 @@ $(function(){
 					scales : {
 						yAxes : [ {
 							ticks : {
-								suggestedMax : 15000,
-								suggestedMin : 1000,
-								stepSize : 1000,
+								suggestedMax : 40,
+								suggestedMin : 30,
+								stepSize : 2,
 								callback : function(value) {
-									return value + '円'
+									return value + '度'
 								}
 							}
 						} ]
